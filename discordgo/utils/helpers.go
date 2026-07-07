@@ -50,7 +50,6 @@ var AllowedIconTypes = []string{
 
 func IsAllowedIcon(ext string) bool {
 	ext = strings.ToLower(ext)
-
 	for _, allowed := range AllowedIconTypes {
 		if ext == allowed {
 			return true
@@ -62,40 +61,34 @@ func IsAllowedIcon(ext string) bool {
 
 func SetRoleIcon(s *discordgo.Session, guildID, roleID, imageURL string) error {
 	resp, err := http.Get(imageURL)
-
 	if err != nil {
 		return err
 	}
+	
 	defer resp.Body.Close()
-
 	data, err := io.ReadAll(resp.Body)
-
 	if err != nil {
 		return err
 	}
 
 	payload := map[string]interface{}{
-		"icon": "data:image/png;base64," +
-			base64.StdEncoding.EncodeToString(data),
+		"icon": "data:image/png;base64," + base64.StdEncoding.EncodeToString(data),
 	}
 
 	body, _ := json.Marshal(payload)
-
 	req, err := http.NewRequest("PATCH", "https://discord.com/api/v10/guilds/"+guildID+"/roles/"+roleID, bytes.NewBuffer(body),)
-
 	if err != nil {
 		return err
 	}
 
 	req.Header.Set("Authorization", "Bot "+s.Token)
 	req.Header.Set("Content-Type", "application/json")
-
 	client := &http.Client{}
 	res, err := client.Do(req)
-
 	if err != nil {
 		return err
 	}
+	
 	defer res.Body.Close()
 
 	if res.StatusCode >= 300 {
@@ -210,7 +203,6 @@ func errWrap(prefix string, err error) error {
 
 func SendError(s *discordgo.Session, i interface{}, title string, description string) {
 	content := fmt.Sprintf("**%s**\n%s", title, description)
-
 	switch v := i.(type) {
 
 	case *discordgo.MessageCreate:
@@ -278,7 +270,6 @@ func RenderCrewPage(data []CrewFull, page int, total int) *discordgo.MessageEmbe
 	}
 
 	desc := ""
-
 	for _, c := range data[start:end] {
 		desc += fmt.Sprintf("**[%s] %s**\nOwner: %s\nMembers: %d\nVisibility: %s\n\n", c.Crew.Tag, c.Crew.Name, c.OwnerName, c.MemberCount, c.Visibility,)
 	}
