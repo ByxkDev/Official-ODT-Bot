@@ -47,7 +47,7 @@ Also enable in the Discord Developer Portal:
 
 ## Purpose
 
-This bot is designed specifically for **Our Legacy Edition community**, helping the server display live game statistics and improve player engagement through Discord.
+This bot is designed specifically for helping the server display live game statistics and improve player engagement through Discord.
 
 ## Notes
 
