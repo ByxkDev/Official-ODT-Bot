@@ -19,7 +19,7 @@ ODT Discord Bot is a lightweight and fast Discord bot built for our **GTA 1.27 L
 - Player information lookup (`?playerinfo <player>`)
 - Server information (`?info`)
 - Account verification (`?verify`)
-- Important links (`?link`)
+- Link your platform account (`?link`)
 - Early supporter claiming (`?claim`)
 - Staff management tools (`?staffhelp`)
 
