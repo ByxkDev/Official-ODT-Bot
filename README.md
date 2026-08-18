@@ -1,6 +1,6 @@
 # ODT-Discord-Bot
 
-ODT Discord Bot is a lightweight and fast Discord bot built for our **GTA 1.27 Legacy Edition server**. It provides real-time server statistics and simple utility commands for players and staff inside Discord.
+ODT Discord Bot is a lightweight and fast Discord bot built for our **GTA Legacy Edition server**. It provides real-time server statistics and simple utility commands for players and staff inside Discord.
 
 ## Features
 
@@ -25,10 +25,9 @@ ODT Discord Bot is a lightweight and fast Discord bot built for our **GTA 1.27 L
 
 ## Requirements
 - Go 1.18+
-- DiscordGo library
   
 ```
-cd Discord Go
+cd Discordgo
 go mod tidy
 go run .
 ```
